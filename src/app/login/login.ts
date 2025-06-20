@@ -14,12 +14,15 @@ export class Login {
   emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   passwordPattern =
     /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+  submitted = false;
 
   onSubmit(form: NgForm) {
+    this.submitted = true;
     console.log(form.value);
     alert(
       `Login successful!\nEmail: ${form.value.email}\nPassword: ${form.value.password}`
     );
     form.resetForm();
+    this.submitted = false;
   }
 }

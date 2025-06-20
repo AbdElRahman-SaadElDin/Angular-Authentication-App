@@ -14,7 +14,7 @@
           ngModel
           #emailCtrl="ngModel"
         />
-        @if (emailCtrl.invalid && emailCtrl.dirty) {
+        @if ((submitted || emailCtrl.dirty) && emailCtrl.errors) {
         <div class="error-message">
           @if (emailCtrl.getError('required')) {
           <span>Email is required</span>
@@ -35,7 +35,7 @@
           ngModel
           #passwordCtrl="ngModel"
         />
-        @if (passwordCtrl.invalid && passwordCtrl.dirty) {
+        @if ((submitted || passwordCtrl.dirty) && passwordCtrl.errors) {
         <div class="error-message">
           @if (passwordCtrl.getError('required')) {
           <span>Password is required</span>
@@ -44,7 +44,7 @@
             >Password must be at least 8 characters,
             <br />
             include an uppercase letter, a number, and a special
-            character.</span
+            character(*&#64;%$#).</span
           >
           }
         </div>
